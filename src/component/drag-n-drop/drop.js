@@ -25,7 +25,11 @@ class DropZone extends React.Component {
         let payload = e.dataTransfer.getData("text/json");
         console.log('yoyoyio', e.dataTransfer);
         let expense = JSON.parse(payload);
-        this.props.onComplete(expense);
+        this.props.expenseDelete(expense);
+        console.log('id', expense);
+        expense.categoryID = this.props.categoryID;
+        console.log('expense', expense);
+        this.props.onComplete(expense)
         this.setState({droppable:false});
     }
 
