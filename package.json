@@ -4,15 +4,17 @@
   "description": "401 Labs",
   "main": "index.js",
   "devDependencies": {
-    "enzyme": "^3.2.0",
+    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "jest": "^21.2.1",
-    "react-test-renderer": "^16.2.0"
+    "jest-css-modules": "^1.1.0",
+    "react-test-renderer": "^16.2.0",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "test": "jest",
     "watch": "webpack-dev-server --inline --hot",
-    "watch-work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
+    "watch-work": "webpack-dev-server --inline --hot",
     "build": "webpack"
   },
   "keywords": [],
@@ -24,22 +26,43 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.7",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "^3.0.2",
+    "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
+    "react-browser-router": "^2.0.5",
     "react-devtools": "^3.0.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "resolve-url-loader": "^2.2.0",
+    "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "superagent": "^3.8.1",
-    "uuid": "^3.1.0",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.7"
-  }
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/__test__/shim.js",
+      "<rootDir>/src/__test__/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyleeAndrews/lab-34-drag-and-drop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RyleeAndrews/lab-34-drag-and-drop/issues"
+  },
+  "homepage": "https://github.com/RyleeAndrews/lab-34-drag-and-drop#readme"
 }

@@ -17,25 +17,33 @@ class Dashboard extends React.Component{
 
   componentWillMount(){
   }
- 
+
+
   render(){
+    console.log('shzfhga');
     return(
       <div className='dashboard'>
         <h1> budget manager </h1>
         <CategoryForm id='main-form' onComplete={this.props.categoryCreate}/>
         <div className='category-wrapper'>
           {this.props.categories.map((category,i) =>
-            <div key={category.id}> 
-              <CategoryItem 
-                category={category} 
+            <div key={category.id}>
+              <CategoryItem
+                category={category}
                 categoryRemove={this.props.categoryRemove}
                 categoryUpdate={this.props.categoryUpdate}
+                categoryID={category.id}
+                expenseCreate={this.props.expenseCreate}
+                expenseDelete={this.props.expenseDelete}
+                expenseUpdate={this.props.expenseUpdate}
+                expenses={this.props.expenses}
               />
-              <ExpenseForm 
-                onComplete={this.props.expenseCreate} 
+              <ExpenseForm
+                onComplete={this.props.expenseCreate}
                 categoryID={category.id}
                 expenses={this.props.expenses}
                 expenseDelete={this.props.expenseDelete}
+                expenseUpdate={this.props.expenseUpdate}
               />
             </div>
           )}
@@ -58,6 +66,7 @@ let mapDispatchToProps = (dispatch) => {
     categoryUpdate: (data) => dispatch(category.update(data)),
     categoryRemove: (data) => dispatch(category.destroy(data)),
     expenseCreate: (data) => dispatch(expense.create(data)),
+    expenseUpdate: (data) => dispatch(expense.update(data)),
     expenseDelete: (data) => dispatch(expense.destroy(data)),
   }
 }

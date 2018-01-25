@@ -8,7 +8,10 @@ class ExpenseItem extends React.Component{
     super(props);
 
     this.handleDragStart = this.handleDrag.bind(this);
+
   }
+
+
 
   handleDrag(e){
     let expense = this.props.expenses[this.props.categoryID].filter(item => {

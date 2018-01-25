@@ -15,6 +15,9 @@ document.body.appendChild(container);
 ReactDom.render(
   <Provider store={store}>
     <App />
-  </Provider>, 
+  </Provider>,
   container);
 
+
+
+export default Main;

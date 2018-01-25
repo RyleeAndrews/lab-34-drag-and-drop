@@ -27,14 +27,17 @@ class ExpenseForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.onComplete(this.state);
+    let setty = {...this.state};
+    setty.cost = Number(setty.cost)
+    this.props.onComplete(setty);
     this.setState(emptyState);
   }
 
   render(){
+    console.log('props', this.props.expenses);
     return(
       <div className='category-form'>
-        <form 
+        <form
           className='expense-form'
           onSubmit={this.handleSubmit}
         >
@@ -54,11 +57,12 @@ class ExpenseForm extends React.Component{
           <button type='submit'> create expense </button>
         </form>
 
-        <ExpenseItem 
+        <ExpenseItem
           expenseDelete={this.props.expenseDelete}
-          expenses={this.props.expenses} 
-          categoryID={this.state.categoryID}/> 
-
+          expenses={this.props.expenses}
+          categoryID={this.state.categoryID}
+          expenseUpdate={this.props.expenseUpdate}
+          />
       </div>
     )
   }

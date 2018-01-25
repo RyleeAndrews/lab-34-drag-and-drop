@@ -26,8 +26,7 @@ class UpdateExpense extends React.Component {
 
   onSubmit(event){
     event.preventDefault();
-    let newState = {...this.state}
-    this.props.expenseUpdate(newState);
+    this.props.expenseUpdate(Object.assign({}, this.state));
   }
   render(){
     return(
